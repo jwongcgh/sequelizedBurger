@@ -1,0 +1,149 @@
+html,
+body {
+    box-sizing: border-box;
+    background-image: url("../img/background.jpg");
+    background-size: cover 100%;
+}
+
+.wrapper {
+    max-width: 640px;
+    min-width: 520px;
+    margin: 0 auto;
+}
+
+.row {
+    text-align: center;
+    padding-top: 15px;
+    margin: 10px;
+}
+
+img {
+    width: 30%;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+}
+
+h1,
+h2 {
+    padding: 10px 15px 10px 15px;
+    text-align: center;
+    font-size: 1.4em;
+    color: blue;
+}
+
+h2 {
+    color: blue;
+}
+
+.column-ava {
+    flex-basis: 54%;
+    border-top: dotted 1px rgba(232, 194, 7, 0.5);
+    border-left: dotted 1px rgb(26, 199, 85);
+    border-bottom: dotted 1px rgb(26, 199, 85);
+    border-radius: 10px;
+}
+
+.column-dev {
+    flex-basis: 44%;
+    border-top: dotted 1px rgba(26, 199, 85, 0.5);
+    border-right: dotted 1px rgb(232, 194, 7);
+    border-bottom: dotted 1px rgb(232, 194, 7);
+    border-radius: 10px;
+}
+
+.column-dev ul {
+    color: grey;
+}
+
+ul {
+    padding: 5px 10px 5px 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+li {
+    display: flex;
+    border: 1px dotted #439AD3;
+    border-radius: 5px;
+    margin: 2px 8px 2px 8px;
+    min-height: 35px;
+}
+
+.item {
+    flex: 3;
+    order: 2;
+    margin: auto;
+    word-wrap: break-word;
+}
+
+form {
+    flex: 1.2;
+    order: 1;
+}
+
+.withBut button {
+    padding: 7px;
+    border-radius: 5px;
+    background-color: yellow;
+    margin-top: 2px;
+}
+
+
+/*hiddeen button on gobbled list*/
+
+.noBut button {
+    flex: 0.1;
+    order: 1;
+    margin: auto;
+    opacity: 0;
+}
+
+#addBurg {
+    clear: both;
+    padding: 15px 15px 15px 15px;
+    border: dotted rgba(235, 114, 255, 0.7) 1px;
+    border-top: dotted rgba(235, 114, 255, 0.3) 1px;
+    border-bottom: dotted 1px orange;
+    border-radius: 10px;
+}
+
+label,
+input {
+    margin-right: 5px;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+#addBut {
+    font-size: 0.8em;
+    background-color: white;
+    border-radius: 5px;
+    padding: 8px 10px 8px 10px;
+}
+
+.foot {
+    display: flex;
+    justify-content: center;
+    max-width: 640px;
+}
+
+footer {
+    width: 250px;
+    text-align: center;
+    text-shadow: 1px 2px lightblue;
+    border-left: dotted orange 1px;
+    border-right: dotted orange 1px;
+    border-top: dotted red 1px;
+    border-bottom: dotted magenta 1px;
+    border-radius: 15px;
+    margin: auto;
+    padding: 5px 0 5px 0;
+    font-size: 70%;
+}

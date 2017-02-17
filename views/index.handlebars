@@ -1,0 +1,79 @@
+<div class="wrapper">
+
+    <div class="row">
+        <div class="header">
+            <h1>Burger Quest</h1>
+            <img src="assets/img/burger.png" alt="image of a delicious burger">
+        </div>
+    </div>
+
+
+    <div class="container">
+
+        <div class="column-ava">
+            <div>
+                <h2>Current Temptations</h2>
+            </div>
+
+            <ul>
+                <!-- thus we loop through burgers in the hbsObject  -->
+                {{#each burgers}}
+                    {{#unless this.devoured}}
+                        <li class="withBut">
+                            <div class="item">
+                                {{ this.burger_name}}
+                            </div>
+                            <form action="/{{this.id}}?_method=PUT" method="POST">
+                                <input type="hidden" name="devoured" value="true">
+                                <button type="submit">Gobble it</button>
+                            </form>
+                        </li>
+                    {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+
+        <!-- devoured burgers list -->
+
+        <div class="column-dev">
+            <h2>Devoured</h2>
+
+            <ul>
+                <!-- thus we loop through burgers in the hbsObject  -->
+                {{#each burgers}}
+                    {{#if this.devoured}}
+                        <li>
+                            <div class="item">
+                                {{ this.burger_name}}.
+                            </div>
+                            <div class="noBut">
+                                <button></button>
+                            </div>
+                        </li>
+                    {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+
+    </div>
+    <!-- add new burger field -->
+
+    <div class="row" id="addBurg">
+        {{!-- <h3>Add a burger</h3> --}}
+        <form id="newItem" action="/new" method="post">
+            {{!-- <field> --}}
+            <label>New delicious burger</label>
+            <input type="text" name="newBurger">{{!-- </field> --}}
+            <button id="addBut" type="submit">Add</button>
+        </form>
+    </div>
+
+    <div class="foot">
+        <footer>
+            &#169; Copyright 2017 Jorge Wong
+        </footer>
+    </div>
+
+
+
+</div>
