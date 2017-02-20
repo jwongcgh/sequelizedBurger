@@ -2,34 +2,40 @@
 
 var express = require("express");
 var router = express.Router();
-var burger = require("../models/burger.js");
+var db = require("../models");
 
 router.get('/', function(request, response) {
-    burger.selectAll(function(data) {
-        var hbsObject = {
-            burgers: data
+  db.Burger.findAll({}).then(function(results) {
+    var hbsObject = {
+            burgers: results
         };
-        response.render('index.handlebars', hbsObject);
-    });
-}); // end router.get from database
+    response.render('index.handlebars', hbsObject);
+  })
+}); // end router find all items
 
 router.post('/new', function(request, response) {
     if (request.body.newBurger !== "") {
-        burger.create("burger_name", [request.body.newBurger], function(data) {
-            response.redirect('/');
-        });
+      db.Burger.create({
+        burger_name: request.body.newBurger,
+        devoured: "false"
+      }).then(function (results) {
+        response.redirect('/');
+      })
     } else {
         response.redirect('/');
     }
 }); // end router.post
 
 router.put("/:id", function(request, response) {
-    var condition = "id=" + request.params.id;
-    burger.update({
-        devoured: request.body.devoured
-    }, condition, function(data) {
-        response.redirect('/');
-    });
+  db.Burger.update ({
+    devoured: request.body.devoured
+  }, {
+    where: {
+      id: request.params.id
+    }
+  }).then(function(results) {
+      response.redirect('/');
+    })
 }); // end router put
 
 module.exports = router;

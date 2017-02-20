@@ -8,10 +8,3 @@ CREATE TABLE burgers (
   date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id)
 );
-
-INSERT INTO burgers (burger_name)
-VALUES ('Cheese Burger'), ('Bacon and Cheese'), ('Portobello Mushroom');
-
-drop database if exists burgers_db;
-
-select * from burgers;

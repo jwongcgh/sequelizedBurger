@@ -1,25 +1,22 @@
-/* setup a model for how to interface with the database */
+/* setup a sequelized model for how to interface with the database */
 
-// the logic is inside orm.js
-var orm = require("../config/orm.js");
-
-// database functions
-var burger = {
-    selectAll: function(cb) {
-        orm.selectAll("burgers", function(response) {
-            cb(response);
-        }); // end selectAll
+module.exports = function(sequelize, DataTypes) {
+  var Burger = sequelize.define("Burger", {
+    burger_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
-    create: function(cols, vals, cb) {
-        orm.create("burgers", cols, vals, function(response) {
-            cb(response);
-        }); // end create
-    },
-    update: function(objColVals, condition, cb) {
-        orm.updateOne("burgers", objColVals, condition, function(response) {
-            cb(response);
-        });
+    devoured: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
     }
-} // end burger object
-
-module.exports = burger;
+    ,
+    date: {
+      type: DataTypes.DATE
+    }
+  },
+{
+  timestamps: false
+});
+  return Burger;
+}
