@@ -26,7 +26,7 @@ var routes = require("./controllers/burgers_controllers.js");
 app.use('/', routes);
 
 // connection
-var PORT = process.env.NODE_ENV || 3000;
+var PORT = process.env.PORT || 3000;
 
 // sync model to database and start connection
 db.sequelize.sync().then(function() {
